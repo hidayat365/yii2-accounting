@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\accounting\models\Journals */
+/* @var $model app\models\Journals */
 
 $this->title = Yii::t('app', 'Create Journals');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Journals'), 'url' => ['index']];

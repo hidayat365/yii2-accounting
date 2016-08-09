@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace app\models;
 
 use Yii;
 use yii\data\SqlDataProvider;
-use app\modules\shared\models\Branches;
-use app\modules\shared\models\Sources;
-use app\modules\shared\models\Currencies;
-use app\modules\accounting\models\JournalTypes;
-use app\modules\accounting\models\JournalDetails;
+use app\models\Branches;
+use app\models\Sources;
+use app\models\Currencies;
+use app\models\JournalTypes;
+use app\models\JournalDetails;
 
 /**
  * This is the model class for table "journals".

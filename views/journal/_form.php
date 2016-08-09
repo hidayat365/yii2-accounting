@@ -7,19 +7,19 @@ use yii\widgets\ActiveForm;
 use kartik\datecontrol\DateControl;
 use kartik\widgets\Select2;
 
-use app\modules\accounting\assets\JournalAsset;
-use app\modules\accounting\models\JournalTypes;
-use app\modules\accounting\models\Accounts;
-use app\modules\shared\models\Currencies;
-use app\modules\shared\models\Projects;
-use app\modules\shared\models\Departments;
+use app\assets\JournalAsset;
+use app\models\JournalTypes;
+use app\models\Accounts;
+use app\models\Currencies;
+use app\models\Projects;
+use app\models\Departments;
 
 use wbraganca\dynamicform\DynamicFormWidget;
 use kartik\date\DatePicker;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\accounting\models\Journals */
+/* @var $model app\models\Journals */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>

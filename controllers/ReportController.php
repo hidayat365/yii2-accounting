@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\accounting\controllers;
+namespace app\controllers;
 
 use yii\data\SqlDataProvider;
-use app\modules\accounting\models\Journals;
+use app\models\Journals;
 
 class ReportController extends \yii\web\Controller
 {

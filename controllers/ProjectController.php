@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\shared\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\modules\shared\models\Projects;
-use app\modules\shared\models\ProjectsSearch;
+use app\models\Projects;
+use app\models\ProjectsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

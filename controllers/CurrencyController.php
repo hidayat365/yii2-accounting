@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\shared\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\modules\shared\models\Currencies;
-use app\modules\shared\models\CurrenciesSearch;
+use app\models\Currencies;
+use app\models\CurrenciesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

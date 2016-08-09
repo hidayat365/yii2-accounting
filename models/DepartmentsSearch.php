@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\shared\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\shared\models\Departments;
+use app\models\Departments;
 
 /**
- * DepartmentsSearch represents the model behind the search form about `app\modules\shared\models\Departments`.
+ * DepartmentsSearch represents the model behind the search form about `app\models\Departments`.
  */
 class DepartmentsSearch extends Departments
 {

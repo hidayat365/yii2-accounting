@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\accounting\controllers;
+namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
@@ -9,13 +9,13 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 
-use app\modules\accounting\models\Accounts;
-use app\modules\accounting\models\Journals;
-use app\modules\accounting\models\JournalTypes;
-use app\modules\accounting\models\JournalsSearch;
-use app\modules\accounting\models\JournalDetails;
-use app\modules\accounting\models\JournalDetailsSearch;
-use app\modules\shared\models\Currencies;
+use app\models\Accounts;
+use app\models\Journals;
+use app\models\JournalTypes;
+use app\models\JournalsSearch;
+use app\models\JournalDetails;
+use app\models\JournalDetailsSearch;
+use app\models\Currencies;
 
 use app\models\Model;
 

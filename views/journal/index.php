@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use kartik\grid\GridView;
-use app\modules\shared\models\Currencies;
+use app\models\Currencies;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\accounting\models\JournalsSearch */
+/* @var $searchModel app\models\JournalsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Journals List');

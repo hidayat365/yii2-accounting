@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\accounting\models\JournalTypes;
+use app\models\JournalTypes;
 
 /**
- * JournalTypesSearch represents the model behind the search form about `app\modules\accounting\models\JournalTypes`.
+ * JournalTypesSearch represents the model behind the search form about `app\models\JournalTypes`.
  */
 class JournalTypesSearch extends JournalTypes
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace app\models;
 
 use Yii;
-use app\modules\shared\models\Projects;
-use app\modules\shared\models\Departments;
+use app\models\Projects;
+use app\models\Departments;
 use app\modules\inventory\models\Items;
 use app\modules\inventory\models\UnitMeasures;
 

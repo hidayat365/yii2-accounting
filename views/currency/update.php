@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\shared\models\Currencies */
+/* @var $model app\models\Currencies */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
     'modelClass' => 'Currencies',

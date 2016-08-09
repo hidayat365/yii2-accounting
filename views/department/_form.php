@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use app\modules\shared\models\Departments;
+use app\models\Departments;
 use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\shared\models\Departments */
+/* @var $model app\models\Departments */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

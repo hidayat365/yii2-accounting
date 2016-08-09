@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\accounting\models\Accounts;
+use app\models\Accounts;
 
 /**
- * AccountsSearch represents the model behind the search form about `app\modules\accounting\models\Accounts`.
+ * AccountsSearch represents the model behind the search form about `app\models\Accounts`.
  */
 class AccountsSearch extends Accounts
 {

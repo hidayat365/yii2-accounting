@@ -4,14 +4,14 @@
 use yii\helpers\Html;
 use kartik\detail\DetailView;
 use kartik\grid\GridView;
-use app\modules\shared\models\Currencies;
-use app\modules\shared\models\Branches;
-use app\modules\shared\models\Sources;
-use app\modules\accounting\models\Accounts;
-use app\modules\accounting\models\JournalTypes;
+use app\models\Currencies;
+use app\models\Branches;
+use app\models\Sources;
+use app\models\Accounts;
+use app\models\JournalTypes;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\accounting\models\Journals */
+/* @var $model app\models\Journals */
 
 $this->title = $model->journal_num;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Journals'), 'url' => ['index']];

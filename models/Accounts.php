@@ -1,9 +1,9 @@
 <?php
 
-namespace app\modules\accounting\models;
+namespace app\models;
 
 use Yii;
-use app\modules\shared\models\Branches;
+use app\models\Branches;
 
 /**
  * This is the model class for table "accounts".

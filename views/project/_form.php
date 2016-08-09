@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use app\modules\shared\models\Projects;
+use app\models\Projects;
 use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\shared\models\Projects */
+/* @var $model app\models\Projects */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

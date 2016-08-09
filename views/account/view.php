@@ -2,10 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use app\modules\shared\models\Branches;
+use app\models\Branches;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\accounting\models\Accounts */
+/* @var $model app\models\Accounts */
 
 $this->title = Yii::t('app', 'View {modelClass}: ', [
     'modelClass' => 'Accounts',

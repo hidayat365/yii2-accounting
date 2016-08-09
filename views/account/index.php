@@ -3,10 +3,10 @@
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use kartik\grid\GridView;
-use app\modules\accounting\models\Accounts;
+use app\models\Accounts;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\modules\accounting\models\AccountsSearch */
+/* @var $searchModel app\models\AccountsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Accounts');

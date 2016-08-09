@@ -1,14 +1,14 @@
 <?php
 
-namespace app\modules\shared\models;
+namespace app\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\modules\shared\models\Projects;
+use app\models\Projects;
 
 /**
- * ProjectsSearch represents the model behind the search form about `app\modules\shared\models\Projects`.
+ * ProjectsSearch represents the model behind the search form about `app\models\Projects`.
  */
 class ProjectsSearch extends Projects
 {

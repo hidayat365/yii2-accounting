@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\shared\models\Currencies */
+/* @var $model app\models\Currencies */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 

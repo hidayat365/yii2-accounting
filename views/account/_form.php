@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
-use app\modules\accounting\models\Accounts;
+use app\models\Accounts;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\accounting\models\Accounts */
+/* @var $model app\models\Accounts */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
