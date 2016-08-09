@@ -1,8 +1,7 @@
 BiruniLabs Accounting
 ============================
 
-BiruniLabs Accounting is a simple General Ledger Application which currently supports double entry, single entry, and multi currency.
-
+BiruniLabs Accounting is a simple General Ledger Application, developed as a proof of concept for larger project. Currently only supports double entry, single entry, multi currency, and project and department allocation. 
 
 Developed using Yii 2 Framework and PostgreSQL database. Currently only PostgreSQL is supported since some of the reports is using *Common Table Expression* (*CTE*) which MySQL does not support.
 
