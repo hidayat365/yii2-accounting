@@ -18,7 +18,7 @@ class CurrenciesSearch extends Currencies
     public function rules()
     {
         return [
-            [['id', 'active', 'branch_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['id', 'active', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name'], 'safe'],
         ];
     }
@@ -58,7 +58,6 @@ class CurrenciesSearch extends Currencies
         $query->andFilterWhere([
             'id' => $this->id,
             'active' => $this->active,
-            'branch_id' => $this->branch_id,
             'created_by' => $this->created_by,
             'created_on' => $this->created_on,
             'modified_by' => $this->modified_by,

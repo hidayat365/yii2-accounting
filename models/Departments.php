@@ -11,7 +11,6 @@ use Yii;
  * @property string $code
  * @property string $name
  * @property integer $active
- * @property integer $branch_id
  * @property integer $parent_id
  * @property integer $manager_id
  * @property integer $created_by
@@ -39,8 +38,8 @@ class Departments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name', 'branch_id'], 'required'],
-            [['active', 'branch_id', 'parent_id', 'manager_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['code', 'name'], 'required'],
+            [['active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name'], 'string', 'max' => 255]
         ];
     }
@@ -55,22 +54,12 @@ class Departments extends \yii\db\ActiveRecord
             'code' => Yii::t('app', 'Department Code'),
             'name' => Yii::t('app', 'Department Name'),
             'active' => Yii::t('app', 'Active?'),
-            'branch_id' => Yii::t('app', 'Branch'),
             'parent_id' => Yii::t('app', 'Sub Department of'),
-            'manager_id' => Yii::t('app', 'Manager'),
             'created_by' => Yii::t('app', 'Created By'),
             'created_on' => Yii::t('app', 'Created On'),
             'modified_by' => Yii::t('app', 'Modified By'),
             'modified_on' => Yii::t('app', 'Modified On'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBranch()
-    {
-        return $this->hasOne(Branches::className(), ['id' => 'branch_id']);
     }
 
     /**

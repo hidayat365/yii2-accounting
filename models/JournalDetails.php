@@ -26,19 +26,6 @@ use app\modules\inventory\models\UnitMeasures;
  * @property integer $reference_id
  * @property string $reference_num
  * @property integer $reference_date
- * @property integer $order_id
- * @property string $order_num
- * @property integer $order_date
- * @property integer $invoice_id
- * @property string $invoice_num
- * @property integer $invoice_date
- * @property integer $item_id
- * @property string $quantity
- * @property string $unit_price
- * @property string $tax1_pct
- * @property string $tax2_pct
- * @property string $disc1_pct
- * @property string $disc2_pct
  * @property string $remarks
  * @property integer $created_by
  * @property integer $created_on
@@ -47,7 +34,6 @@ use app\modules\inventory\models\UnitMeasures;
  *
  * @property Accounts $account
  * @property Departments $department
- * @property Journals $invoice
  * @property Projects $project
  * @property Journals $reference
  */
@@ -64,11 +50,8 @@ class JournalDetails extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function init() {
-      //$this->debet = 0;
-      //$this->debet_real = 0;
-      //$this->credit = 0;
-      //$this->credit_real = 0;
+    public function init()
+    {
     }
 
     /**
@@ -105,19 +88,6 @@ class JournalDetails extends \yii\db\ActiveRecord
             'reference_id' => Yii::t('app', 'Reference ID'),
             'reference_num' => Yii::t('app', 'Reference Num'),
             'reference_date' => Yii::t('app', 'Reference Date'),
-            'order_id' => Yii::t('app', 'Order ID'),
-            'order_num' => Yii::t('app', 'Order Num'),
-            'order_date' => Yii::t('app', 'Order Date'),
-            'invoice_id' => Yii::t('app', 'Invoice ID'),
-            'invoice_num' => Yii::t('app', 'Invoice Num'),
-            'invoice_date' => Yii::t('app', 'Invoice Date'),
-            'item_id' => Yii::t('app', 'Item ID'),
-            'quantity' => Yii::t('app', 'Quantity'),
-            'unit_price' => Yii::t('app', 'Unit Price'),
-            'tax1_pct' => Yii::t('app', 'Tax1 Pct'),
-            'tax2_pct' => Yii::t('app', 'Tax2 Pct'),
-            'disc1_pct' => Yii::t('app', 'Disc1 Pct'),
-            'disc2_pct' => Yii::t('app', 'Disc2 Pct'),
             'remarks' => Yii::t('app', 'Remarks'),
             'created_by' => Yii::t('app', 'Created By'),
             'created_on' => Yii::t('app', 'Created On'),
@@ -137,25 +107,9 @@ class JournalDetails extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getItem()
-    {
-        return $this->hasOne(Items::className(), ['id' => 'item_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
     public function getDepartment()
     {
         return $this->hasOne(Departments::className(), ['id' => 'department_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getInvoice()
-    {
-        return $this->hasOne(Journals::className(), ['id' => 'invoice_id']);
     }
 
     /**

@@ -13,7 +13,6 @@ use app\models\Branches;
  * @property string $name
  * @property integer $checking
  * @property integer $active
- * @property integer $branch_id
  * @property integer $parent_id
  * @property string $bank_name
  * @property string $bank_address
@@ -24,9 +23,6 @@ use app\models\Branches;
  * @property integer $modified_by
  * @property integer $modified_on
  *
- * @property AccountBalances[] $accountBalances
- * @property AccountBudgets[] $accountBudgets
- * @property Branches $branch
  * @property Accounts $parent
  * @property Accounts[] $accounts
  * @property JournalDetails[] $journalDetails
@@ -48,8 +44,8 @@ class Accounts extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name', 'branch_id'], 'required'],
-            [['checking', 'active', 'branch_id', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['code', 'name'], 'required'],
+            [['checking', 'active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name', 'bank_name', 'bank_address', 'bank_accnum', 'bank_accname'], 'string', 'max' => 255]
         ];
     }
@@ -65,7 +61,6 @@ class Accounts extends \yii\db\ActiveRecord
             'name' => Yii::t('app', 'Account Name'),
             'checking' => Yii::t('app', 'Checking'),
             'active' => Yii::t('app', 'Active'),
-            'branch_id' => Yii::t('app', 'Branch'),
             'parent_id' => Yii::t('app', 'Parent'),
             'bank_name' => Yii::t('app', 'Bank Name'),
             'bank_address' => Yii::t('app', 'Bank Address'),
@@ -76,30 +71,6 @@ class Accounts extends \yii\db\ActiveRecord
             'modified_by' => Yii::t('app', 'Modified By'),
             'modified_on' => Yii::t('app', 'Modified On'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAccountBalances()
-    {
-        return $this->hasMany(AccountBalances::className(), ['account_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getAccountBudgets()
-    {
-        return $this->hasMany(AccountBudgets::className(), ['account_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBranch()
-    {
-        return $this->hasOne(Branches::className(), ['id' => 'branch_id']);
     }
 
     /**

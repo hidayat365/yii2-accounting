@@ -18,7 +18,7 @@ class ProjectsSearch extends Projects
     public function rules()
     {
         return [
-            [['id', 'active', 'branch_id', 'parent_id', 'manager_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['id', 'active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name', 'description', 'location', 'contract_num', 'contact_person', 'contact_phone', 'date_start_est', 'date_finish_est', 'date_start_actual', 'date_finish_actual', 'status'], 'safe'],
             [['value', 'progress_pct'], 'number'],
         ];
@@ -60,7 +60,7 @@ class ProjectsSearch extends Projects
             'id' => $this->id,
             'value' => $this->value,
             'active' => $this->active,
-            'branch_id' => $this->branch_id,
+            
             'parent_id' => $this->parent_id,
             'manager_id' => $this->manager_id,
             'date_start_est' => $this->date_start_est,

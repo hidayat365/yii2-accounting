@@ -18,7 +18,7 @@ class DepartmentsSearch extends Departments
     public function rules()
     {
         return [
-            [['id', 'active', 'branch_id', 'parent_id', 'manager_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['id', 'active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name'], 'safe'],
         ];
     }
@@ -58,9 +58,7 @@ class DepartmentsSearch extends Departments
         $query->andFilterWhere([
             'id' => $this->id,
             'active' => $this->active,
-            'branch_id' => $this->branch_id,
             'parent_id' => $this->parent_id,
-            'manager_id' => $this->manager_id,
             'created_by' => $this->created_by,
             'created_on' => $this->created_on,
             'modified_by' => $this->modified_by,

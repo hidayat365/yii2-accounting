@@ -18,7 +18,7 @@ class AccountsSearch extends Accounts
     public function rules()
     {
         return [
-            [['id', 'checking', 'active', 'branch_id', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['id', 'checking', 'active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['code', 'name', 'bank_name', 'bank_address', 'bank_accnum', 'bank_accname'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class AccountsSearch extends Accounts
             'id' => $this->id,
             'checking' => $this->checking,
             'active' => $this->active,
-            'branch_id' => $this->branch_id,
             'parent_id' => $this->parent_id,
             'created_by' => $this->created_by,
             'created_on' => $this->created_on,

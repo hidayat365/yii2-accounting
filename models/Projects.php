@@ -14,9 +14,7 @@ use Yii;
  * @property string $description
  * @property string $location
  * @property integer $active
- * @property integer $branch_id
  * @property integer $parent_id
- * @property integer $manager_id
  * @property string $contract_num
  * @property string $contact_person
  * @property string $contact_phone
@@ -31,7 +29,6 @@ use Yii;
  * @property integer $modified_by
  * @property integer $modified_on
  *
- * @property Branches $branch
  * @property Projects $parent
  * @property Projects[] $projects
  */
@@ -51,9 +48,9 @@ class Projects extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['code', 'name', 'branch_id'], 'required'],
+            [['code', 'name'], 'required'],
             [['value', 'progress_pct'], 'number'],
-            [['active', 'branch_id', 'parent_id', 'manager_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['active', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['date_start_est', 'date_finish_est', 'date_start_actual', 'date_finish_actual'], 'safe'],
             [['code', 'name', 'description', 'location', 'contract_num', 'contact_person', 'contact_phone', 'status'], 'string', 'max' => 255]
         ];
@@ -72,9 +69,8 @@ class Projects extends \yii\db\ActiveRecord
             'description' => Yii::t('app', 'Description'),
             'location' => Yii::t('app', 'Location'),
             'active' => Yii::t('app', 'Active'),
-            'branch_id' => Yii::t('app', 'Branch ID'),
+            'status' => Yii::t('app', 'Status'),
             'parent_id' => Yii::t('app', 'Sub Project of'),
-            'manager_id' => Yii::t('app', 'Project Manager'),
             'contract_num' => Yii::t('app', 'Contract Num'),
             'contact_person' => Yii::t('app', 'Contact Person'),
             'contact_phone' => Yii::t('app', 'Contact Phone'),
@@ -82,21 +78,12 @@ class Projects extends \yii\db\ActiveRecord
             'date_finish_est' => Yii::t('app', 'Date Finish Est'),
             'date_start_actual' => Yii::t('app', 'Date Start Actual'),
             'date_finish_actual' => Yii::t('app', 'Date Finish Actual'),
-            'status' => Yii::t('app', 'Status'),
             'progress_pct' => Yii::t('app', 'Progress Pct'),
             'created_by' => Yii::t('app', 'Created By'),
             'created_on' => Yii::t('app', 'Created On'),
             'modified_by' => Yii::t('app', 'Modified By'),
             'modified_on' => Yii::t('app', 'Modified On'),
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getBranch()
-    {
-        return $this->hasOne(Branches::className(), ['id' => 'branch_id']);
     }
 
     /**

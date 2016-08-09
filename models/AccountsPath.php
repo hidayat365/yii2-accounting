@@ -31,7 +31,6 @@ use Yii;
  * @property integer $active
  * @property integer $checking
  * @property integer $parent_id
- * @property integer $branch_id
  * @property string $bank_name
  * @property string $bank_address
  * @property string $bank_accnum
@@ -57,7 +56,7 @@ class AccountsPath extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'id_level1', 'id_level2', 'id_level3', 'id_level4', 'level', 'active', 'checking', 'parent_id', 'branch_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['id', 'id_level1', 'id_level2', 'id_level3', 'id_level4', 'level', 'active', 'checking', 'parent_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
             [['id_path', 'code_level1', 'code_level2', 'code_level3', 'code_level4', 'code_path', 'code_indented', 'name_level1', 'name_level2', 'name_level3', 'name_level4', 'name_path', 'name_indented'], 'string'],
             [['code', 'name', 'bank_name', 'bank_address', 'bank_accnum', 'bank_accname'], 'string', 'max' => 255],
         ];
@@ -93,7 +92,7 @@ class AccountsPath extends \yii\db\ActiveRecord
             'active' => Yii::t('app', 'Active'),
             'checking' => Yii::t('app', 'Checking'),
             'parent_id' => Yii::t('app', 'Parent ID'),
-            'branch_id' => Yii::t('app', 'Branch ID'),
+
             'bank_name' => Yii::t('app', 'Bank Name'),
             'bank_address' => Yii::t('app', 'Bank Address'),
             'bank_accnum' => Yii::t('app', 'Bank Accnum'),
