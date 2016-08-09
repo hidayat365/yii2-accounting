@@ -61,7 +61,6 @@ class CurrencyController extends Controller
     public function actionCreate()
     {
         $model = new Currencies();
-        $model->branch_id = 1;
         $model->active = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

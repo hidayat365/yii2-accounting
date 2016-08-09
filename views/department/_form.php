@@ -14,8 +14,6 @@ use kartik\widgets\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'branch_id')->hiddenInput()->label(false) ?>
-    <?= $form->field($model, 'active')->checkBox() ?>
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'parent_id')
@@ -30,7 +28,6 @@ use kartik\widgets\Select2;
             ]); ?>
 
     <?php /*
-    <?= $form->field($model, 'manager_id')->textInput() ?>
     <?= $form->field($model, 'created_by')->textInput() ?>
     <?= $form->field($model, 'created_on')->textInput() ?>
     <?= $form->field($model, 'modified_by')->textInput() ?>

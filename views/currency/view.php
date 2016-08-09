@@ -33,7 +33,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'code',
             'name',
             'active',
-            'branch_id',
             'created_by',
             'created_on',
             'modified_by',

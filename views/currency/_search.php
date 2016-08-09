@@ -16,21 +16,13 @@ use yii\widgets\ActiveForm;
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
-
     <?= $form->field($model, 'code') ?>
-
     <?= $form->field($model, 'name') ?>
-
     <?= $form->field($model, 'active') ?>
 
-    <?= $form->field($model, 'branch_id') ?>
-
     <?php // echo $form->field($model, 'created_by') ?>
-
     <?php // echo $form->field($model, 'created_on') ?>
-
     <?php // echo $form->field($model, 'modified_by') ?>
-
     <?php // echo $form->field($model, 'modified_on') ?>
 
     <div class="form-group">

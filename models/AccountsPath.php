@@ -92,7 +92,6 @@ class AccountsPath extends \yii\db\ActiveRecord
             'active' => Yii::t('app', 'Active'),
             'checking' => Yii::t('app', 'Checking'),
             'parent_id' => Yii::t('app', 'Parent ID'),
-
             'bank_name' => Yii::t('app', 'Bank Name'),
             'bank_address' => Yii::t('app', 'Bank Address'),
             'bank_accnum' => Yii::t('app', 'Bank Accnum'),

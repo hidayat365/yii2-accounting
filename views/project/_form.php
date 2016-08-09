@@ -15,12 +15,10 @@ use kartik\widgets\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'branch_id')->hiddenInput()->label(false) ?>
     <?= $form->field($model, 'active')->checkBox() ?>
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'parent_id')
         ->widget(Select2::classname(), [
@@ -34,7 +32,7 @@ use kartik\widgets\Select2;
             ]); ?>
 
     <?php /*
-    <?= $form->field($model, 'manager_id')->textInput() ?>
+    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'contract_num')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'contact_person')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'contact_phone')->textInput(['maxlength' => true]) ?>

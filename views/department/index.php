@@ -15,13 +15,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Departments'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'showPageSummary' => false,
+        'condensed' => true,
+        'panel' => [
+            'type' => GridView::TYPE_PRIMARY,
+            'heading' => '<i class="glyphicon glyphicon-tasks"></i>  <strong>Departments List</strong>',
+        ],
+        'toolbar' =>  [
+            ['content'=>
+                Html::a('<i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;'.Yii::t('app', 'Create Department'), ['create'], ['data-pjax'=>0, 'class' => 'btn btn-success', 'title'=>Yii::t('app', 'Create Journal')])
+            ],
+            '{export}',
+            '{toggleData}'
+        ],
         'columns' => [
             ['class' => 'kartik\grid\SerialColumn'],
 
@@ -31,12 +40,10 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => '\kartik\grid\BooleanColumn',
                 'attribute' => 'active',
-                'trueLabel' => 'Yes', 
+                'trueLabel' => 'Yes',
                 'falseLabel' => 'No'
             ],
-            'branch.name',
             // 'parent_id',
-            // 'manager_id',
             // 'created_by',
             // 'created_on',
             // 'modified_by',

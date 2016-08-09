@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use app\models\Branches;
 
 /**
  * This is the model class for table "accounts".

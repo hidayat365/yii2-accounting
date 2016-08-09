@@ -61,7 +61,6 @@ class AccountController extends Controller
     public function actionCreate()
     {
         $model = new Accounts();
-        $model->branch_id = 1;
         $model->active = 1;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {

@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use app\models\Branches;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Accounts */
@@ -51,7 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
               'attribute' => 'parent.name',
               'label' => 'Parent Account'
             ],
-            'branch.name',
             /*
             'bank_name',
             'bank_address',

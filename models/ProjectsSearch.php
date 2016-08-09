@@ -60,9 +60,7 @@ class ProjectsSearch extends Projects
             'id' => $this->id,
             'value' => $this->value,
             'active' => $this->active,
-            
             'parent_id' => $this->parent_id,
-            'manager_id' => $this->manager_id,
             'date_start_est' => $this->date_start_est,
             'date_finish_est' => $this->date_finish_est,
             'date_start_actual' => $this->date_start_actual,

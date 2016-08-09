@@ -15,7 +15,6 @@ use app\models\Accounts;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'branch_id')->hiddenInput()->label(false) ?>
     <?= $form->field($model, 'active')->checkBox() ?>
     <?= $form->field($model, 'checking')->checkBox() ?>
 

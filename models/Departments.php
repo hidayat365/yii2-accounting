@@ -12,13 +12,11 @@ use Yii;
  * @property string $name
  * @property integer $active
  * @property integer $parent_id
- * @property integer $manager_id
  * @property integer $created_by
  * @property integer $created_on
  * @property integer $modified_by
  * @property integer $modified_on
  *
- * @property Branches $branch
  * @property Departments $parent
  * @property Departments[] $departments
  */

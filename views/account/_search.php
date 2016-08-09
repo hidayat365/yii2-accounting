@@ -15,34 +15,20 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
     <?= $form->field($model, 'code') ?>
-
     <?= $form->field($model, 'name') ?>
-
     <?= $form->field($model, 'checking') ?>
-
     <?= $form->field($model, 'active') ?>
 
-    <?php // echo $form->field($model, 'branch_id') ?>
-
     <?php // echo $form->field($model, 'parent_id') ?>
-
     <?php // echo $form->field($model, 'bank_name') ?>
-
     <?php // echo $form->field($model, 'bank_address') ?>
-
     <?php // echo $form->field($model, 'bank_accnum') ?>
-
     <?php // echo $form->field($model, 'bank_accname') ?>
 
     <?php // echo $form->field($model, 'created_by') ?>
-
     <?php // echo $form->field($model, 'created_on') ?>
-
     <?php // echo $form->field($model, 'modified_by') ?>
-
     <?php // echo $form->field($model, 'modified_on') ?>
 
     <div class="form-group">

@@ -21,10 +21,6 @@ $typeList = ArrayHelper::map(Accounts::find()->asArray()->all(), 'id', 'name');
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Create Accounts'), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -33,6 +29,13 @@ $typeList = ArrayHelper::map(Accounts::find()->asArray()->all(), 'id', 'name');
         'panel' => [
             'type' => GridView::TYPE_PRIMARY,
             'heading' => '<i class="glyphicon glyphicon-tasks"></i>  <strong>Chart of Accounts</strong>',
+        ],
+        'toolbar' =>  [
+            ['content'=>
+                Html::a('<i class="glyphicon glyphicon-plus"></i>&nbsp;&nbsp;'.Yii::t('app', 'Create Account'), ['create'], ['data-pjax'=>0, 'class' => 'btn btn-success', 'title'=>Yii::t('app', 'Create Journal')])
+            ],
+            '{export}',
+            '{toggleData}'
         ],
         'columns' => [
             ['class' => 'kartik\grid\SerialColumn'],
@@ -54,7 +57,6 @@ $typeList = ArrayHelper::map(Accounts::find()->asArray()->all(), 'id', 'name');
                 'label' => 'Parent Account',
                 'value' => function ($model, $index, $widget) { return $model->parent==null ? "" : $model->parent->name; }
             ],
-            // 'branch_id',
             // 'bank_name',
             // 'bank_address',
             // 'bank_accnum',
