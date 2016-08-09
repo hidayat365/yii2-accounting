@@ -64,7 +64,7 @@ AppAsset::register($this);
               'items' => [
                 ['label' => 'General Ledger', 'url' => ['/report/ledger'], 'visible' => !Yii::$app->user->isGuest],
                 '<li class="divider"></li>',
-                ['label' => 'Trial Balance', 'url' => ['/report/trial-balance'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Trial Balance', 'url' => ['/report/balance-trial'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Balance Sheet', 'url' => ['/report/balance-sheet'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Income Statement', 'url' => ['/report/income-statement'], 'visible' => !Yii::$app->user->isGuest],
               ],
