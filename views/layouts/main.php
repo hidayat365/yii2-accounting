@@ -37,8 +37,39 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
+            [
+              'label' => 'Settings',
+              'url' => ['/site/settings'],
+              'items' => [
+                ['label' => 'COA', 'url' => ['/account/index'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Currencies', 'url' => ['/currency/index'], 'visible' => !Yii::$app->user->isGuest],
+                '<li class="divider"></li>',
+                ['label' => 'Departments', 'url' => ['/department/index'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Projects', 'url' => ['/project/index'], 'visible' => !Yii::$app->user->isGuest],
+              ],
+            ],
+            [
+              'label' => 'Transactions',
+              'url' => ['/journal/index'],
+              'items' => [
+                ['label' => 'General Journals', 'url' => ['/journal/index'], 'visible' => !Yii::$app->user->isGuest],
+                '<li class="divider"></li>',
+                ['label' => 'Revenues', 'url' => ['/journal/revenue'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Expenses', 'url' => ['/journal/expense'], 'visible' => !Yii::$app->user->isGuest],
+              ],
+            ],
+            [
+              'label' => 'Reports',
+              'url' => ['/report/index'],
+              'items' => [
+                ['label' => 'General Ledger', 'url' => ['/report/ledger'], 'visible' => !Yii::$app->user->isGuest],
+                '<li class="divider"></li>',
+                ['label' => 'Trial Balance', 'url' => ['/report/trial-balance'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Balance Sheet', 'url' => ['/report/balance-sheet'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Income Statement', 'url' => ['/report/income-statement'], 'visible' => !Yii::$app->user->isGuest],
+              ],
+            ],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
