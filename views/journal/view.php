@@ -5,7 +5,6 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use kartik\grid\GridView;
 use app\models\Currencies;
-use app\models\Branches;
 use app\models\Sources;
 use app\models\Accounts;
 use app\models\JournalTypes;
@@ -52,7 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     [   'attribute' => 'journal_value',
                         'format' => ['decimal', 2],
                     ],
-                    [   'attribute' => 'journal_value_real',
+                    [   'label' => 'Journal Value Real',
+                        'attribute' => 'journal_value_real',
                         'format' => ['decimal', 2],
                     ],
                     [
@@ -62,11 +62,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     [   'attribute' => 'currency_rate1',
                         'format' => ['decimal', 2],
                     ],
-                    [
-                        'attribute' => 'account_id',
-                        'value' => !isset($model->account_id) ? '<span class="not-set">(not set)</span>' : Accounts::findOne($model->account_id)->name,
-                        'format' => 'raw',
-                    ],
                     'remarks',
                 ],
             ]) ?>
@@ -75,6 +70,11 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
+                    [
+                        'attribute' => 'account_id',
+                        'value' => !isset($model->account_id) ? '<span class="not-set">(not set)</span>' : Accounts::findOne($model->account_id)->name,
+                        'format' => 'raw',
+                    ],
                     [
                         'attribute'=>'posted',
                         'format'=>'raw',
@@ -91,57 +91,12 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format'=>'raw',
                         'value' => $model->closing ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
                     ],
-                    [
-                        'attribute' => 'source_id',
-                        'value' => !isset($model->source_id) ? '<span class="not-set">(not set)</span>' : Sources::findOne($model->source_id)->name,
-                        'format' => 'raw',
-                    ],
-                    [
-                        'attribute' => 'branch_id',
-                        'value' => Branches::findOne($model->branch_id)->name,
-                    ],
                     /*
                     'currency_rate2',
                     'currency_reval',
                     'reference_id',
                     'reference_num',
                     'reference_date',
-                    'order_id',
-                    'order_num',
-                    'order_date',
-                    'invoice_id',
-                    'invoice_num',
-                    'invoice_date',
-                    'cost1_account_id',
-                    'cost1_value',
-                    'cost1_value_real',
-                    'cost2_account_id',
-                    'cost2_value',
-                    'cost2_value_real',
-                    'cost3_account_id',
-                    'cost3_value',
-                    'cost3_value_real',
-                    'cost4_account_id',
-                    'cost4_value',
-                    'cost4_value_real',
-                    'cost5_account_id',
-                    'cost5_value',
-                    'cost5_value_real',
-                    'disc1_account_id',
-                    'disc1_value',
-                    'disc1_value_real',
-                    'disc2_account_id',
-                    'disc2_value',
-                    'disc2_value_real',
-                    'disc3_account_id',
-                    'disc3_value',
-                    'disc3_value_real',
-                    'disc4_account_id',
-                    'disc4_value',
-                    'disc4_value_real',
-                    'disc5_account_id',
-                    'disc5_value',
-                    'disc5_value_real',
                     */
                     'created_by',
                     'created_on',
@@ -216,19 +171,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     // 'reference_id',
                     // 'reference_num',
                     // 'reference_date',
-                    // 'order_id',
-                    // 'order_num',
-                    // 'order_date',
-                    // 'invoice_id',
-                    // 'invoice_num',
-                    // 'invoice_date',
-                    // 'item_id',
-                    // 'quantity',
-                    // 'unit_price',
-                    // 'tax1_pct',
-                    // 'tax2_pct',
-                    // 'disc1_pct',
-                    // 'disc2_pct',
                     // 'created_by',
                     // 'created_on',
                     // 'modified_by',

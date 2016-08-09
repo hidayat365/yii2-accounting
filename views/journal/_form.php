@@ -34,7 +34,7 @@ use kartik\date\DatePicker;
             <?= $form->field($model, 'journal_num')->textInput(['maxlength' => true]) ?>
         </div>
 
-        <div class="col-xs-6 col-sm-4 col-lg-4">
+        <div class="col-xs-6 col-sm-4 col-lg-3">
             <?= $form->field($model, 'journal_date')
                 ->widget(DateControl::classname(), [
                     'type'=>DateControl::FORMAT_DATE,
@@ -47,7 +47,7 @@ use kartik\date\DatePicker;
                 ]) ?>
         </div>
 
-        <div class="col-xs-6 col-sm-3 col-lg-2">
+        <div class="col-xs-6 col-sm-3 col-lg-3">
             <?= $form->field($model, 'currency_id')
                 ->widget(Select2::classname(), [
                     'data' => ArrayHelper::map(Currencies::find()->all(), 'id', 'name'),
@@ -62,15 +62,6 @@ use kartik\date\DatePicker;
         <div class="col-xs-6 col-sm-2 col-lg-2">
             <?= $form->field($model, 'currency_rate1')->textInput(['maxlength' => true]) ?>
         </div>
-
-        <?php /*
-        <div class="col-xs-6 col-sm-3 col-md-3">
-            <?= $form->field($model, 'type_id')->dropDownList(
-                ArrayHelper::map(JournalTypes::find()->all(), 'id', 'name'),  // Flat array ('id'=>'label')
-                ['prompt'=>'* Pilih Transaksis *']                          // options
-            ); ?>
-        </div>
-         */ ?>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>

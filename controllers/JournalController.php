@@ -93,7 +93,6 @@ class JournalController extends Controller
         $details = [ new JournalDetails ];
         $accounts = Accounts::find()->all();
 
-        $model->branch_id = 1;
         $model->posted = 1;
         $model->payment = 0;
         $model->closing = 0;
@@ -101,7 +100,7 @@ class JournalController extends Controller
         $model->currency_rate1 = 1;
         $model->currency_rate2 = 1;
         $model->currency_reval = 1;
-        $model->currency_id = Currencies::find()->where(['branch_id' => $model->branch_id, 'code' => 'IDR'])->one()->id;
+        $model->currency_id = Currencies::find()->where(['code' => 'IDR'])->one()->id;
 
         // proses isi post variable
         if ($model->load(Yii::$app->request->post())) {

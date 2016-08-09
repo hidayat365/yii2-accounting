@@ -4,7 +4,6 @@ namespace app\models;
 
 use Yii;
 use yii\data\SqlDataProvider;
-use app\models\Branches;
 use app\models\Sources;
 use app\models\Currencies;
 use app\models\JournalTypes;
@@ -157,27 +156,24 @@ class Journals extends \yii\db\ActiveRecord
 
     /**
      * Get Trial Balance data for given period.
-     * @param integer $branch
      * @param date $start
      * @param date $date1
      * @param date $date2
      * @return SqlDataProvider
      */
-    public static function getTrialBalance($branch,$start,$date1,$date2)
+    public static function getTrialBalance($start,$date1,$date2)
     {
         // query kartu stok
         $sql_list = "
-          select cs.code_path, ax.account_id
+          select cs.code_path, cs.id account_id
           , cs.code account_code, cs.name account_name
-          , br.code branch_code, br.name branch_name
           , cs.code_level1, cs.name_level1
           , cs.code_level2, cs.name_level2
           , cs.code_level3, cs.name_level3
           , cs.code_level4, cs.name_level4
           , coalesce(tx.tx_balance,0) begin_balance
           , coalesce(bx.debet,0) debet, coalesce(bx.credit,0) credit
-          , coalesce(ax.begin_balance,0) +coalesce(tx.tx_balance,0)
-          + coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
+          , coalesce(tx.tx_balance,0) +coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
           from accounts_path cs
           left join (
             select account_id
@@ -198,7 +194,7 @@ class Journals extends \yii\db\ActiveRecord
             between extract(epoch from date '$date1')
             and extract(epoch from date '$date2')
             group by account_id
-          ) bx on cx.id = bx.account_id
+          ) bx on cs.id = bx.account_id
           where cs.id not in (
             select parent_id from accounts
             where parent_id is not null
@@ -214,7 +210,6 @@ class Journals extends \yii\db\ActiveRecord
         return $dataProvider = new SqlDataProvider([
             'sql' => $sql_list,
             'params' => [
-              ':p0' => $branch,
             ],
             'pagination' => [
                 'pageSize' => 0,
@@ -224,27 +219,24 @@ class Journals extends \yii\db\ActiveRecord
 
     /**
     * Get Balance Sheet data for given period.
-    * @param integer $branch
     * @param date $start
     * @param date $date1
     * @param date $date2
      * @return SqlDataProvider
      */
-    public static function getBalanceSheet($branch,$start,$date1,$date2)
+    public static function getBalanceSheet($start,$date1,$date2)
     {
         // query kartu stok
         $sql_list = "
-          select cs.code_path, ax.account_id
+          select cs.code_path, cs.id account_id
           , cs.code account_code, cs.name account_name
-          , br.code branch_code, br.name branch_name
           , cs.code_level1, cs.name_level1
           , cs.code_level2, cs.name_level2
           , cs.code_level3, cs.name_level3
           , cs.code_level4, cs.name_level4
           , coalesce(tx.tx_balance,0) begin_balance
           , coalesce(bx.debet,0) debet, coalesce(bx.credit,0) credit
-          , coalesce(ax.begin_balance,0) +coalesce(tx.tx_balance,0)
-          + coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
+          , coalesce(tx.tx_balance,0) +coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
           from accounts_path cs
           left join (
             select account_id
@@ -265,7 +257,7 @@ class Journals extends \yii\db\ActiveRecord
             between extract(epoch from date '$date1')
             and extract(epoch from date '$date2')
             group by account_id
-          ) bx on cx.id = bx.account_id
+          ) bx on cs.id = bx.account_id
           where cs.id not in (
             select parent_id from accounts
             where parent_id is not null
@@ -277,17 +269,15 @@ class Journals extends \yii\db\ActiveRecord
           )
           and cs.code_level1 in ('1000','2000','3000')
           union all
-          select ce.code_path, br.acc_profit1
-          , ce.code account_code, ce.name account_name
-          , br.code branch_code, br.name branch_name
-          , ce.code_level1, ce.name_level1
-          , ce.code_level2, ce.name_level2
-          , ce.code_level3, ce.name_level3
-          , ce.code_level4, ce.name_level4
+          select cs.code_path, 3220 acc_profit1
+          , cs.code account_code, cs.name account_name
+          , cs.code_level1, cs.name_level1
+          , cs.code_level2, cs.name_level2
+          , cs.code_level3, cs.name_level3
+          , cs.code_level4, cs.name_level4
           , sum(coalesce(tx.tx_balance,0)) begin_balance
           , sum(coalesce(bx.debet,0)) debet, sum(coalesce(bx.credit,0)) credit
-          , sum(coalesce(ax.begin_balance,0) +coalesce(tx.tx_balance,0)
-          + coalesce(bx.debet,0) -coalesce(bx.credit,0)) end_balance
+          , sum(coalesce(tx.tx_balance,0) +coalesce(bx.debet,0) -coalesce(bx.credit,0)) end_balance
           from accounts_path cs
           left join (
             select account_id
@@ -308,7 +298,7 @@ class Journals extends \yii\db\ActiveRecord
             between extract(epoch from date '$date1')
             and extract(epoch from date '$date2')
             group by account_id
-          ) bx on cx.id = bx.account_id
+          ) bx on cs.id = bx.account_id
           where cs.id not in (
             select parent_id from accounts
             where parent_id is not null
@@ -319,19 +309,18 @@ class Journals extends \yii\db\ActiveRecord
             or coalesce(bx.credit,0) <>0
           )
           and cs.code_level1 not in ('1000','2000','3000')
-          group by ce.code_path, br.acc_profit1
-          , ce.code, ce.name, br.code, br.name
-          , ce.code_level1, ce.name_level1
-          , ce.code_level2, ce.name_level2
-          , ce.code_level3, ce.name_level3
-          , ce.code_level4, ce.name_level4
+          group by cs.code_path
+          , cs.code, cs.name
+          , cs.code_level1, cs.name_level1
+          , cs.code_level2, cs.name_level2
+          , cs.code_level3, cs.name_level3
+          , cs.code_level4, cs.name_level4
           order by code_path
         ";
         // data provider untuk ditampilkan di view
         return $dataProvider = new SqlDataProvider([
             'sql' => $sql_list,
             'params' => [
-              ':p0' => $branch,
             ],
             'pagination' => [
                 'pageSize' => 0,
@@ -341,29 +330,24 @@ class Journals extends \yii\db\ActiveRecord
 
     /**
      * Get Income Statement data for given period.
-     * @param integer $branch
      * @param date $start
      * @param date $date1
      * @param date $date2
      * @return SqlDataProvider
      */
-    public static function getIncomeStatement($branch,$start,$date1,$date2)
+    public static function getIncomeStatement($start,$date1,$date2)
     {
         // query kartu stok
         $sql_list = "
-          select cs.code_path, ax.account_id
+          select cs.code_path, cs.id account_id
           , cs.code account_code, cs.name account_name
-          , br.code branch_code, br.name branch_name
           , cs.code_level1, cs.name_level1
           , cs.code_level2, cs.name_level2
           , cs.code_level3, cs.name_level3
           , cs.code_level4, cs.name_level4
-          , coalesce(ax.begin_balance,0) acc_balance
-          , coalesce(tx.tx_balance,0) tx_balance
-          , coalesce(ax.begin_balance,0) +coalesce(tx.tx_balance,0) begin_balance
+          , coalesce(tx.tx_balance,0) begin_balance
           , coalesce(bx.debet,0) debet, coalesce(bx.credit,0) credit
-          , coalesce(ax.begin_balance,0) +coalesce(tx.tx_balance,0)
-          + coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
+          , coalesce(tx.tx_balance,0) +coalesce(bx.debet,0) -coalesce(bx.credit,0) end_balance
           from accounts_path cs
           left join (
             select account_id
@@ -384,7 +368,7 @@ class Journals extends \yii\db\ActiveRecord
             between extract(epoch from date '$date1')
             and extract(epoch from date '$date2')
             group by account_id
-          ) bx on cx.id = bx.account_id
+          ) bx on cs.id = bx.account_id
           where cs.id not in (
             select parent_id from accounts
             where parent_id is not null
@@ -401,7 +385,6 @@ class Journals extends \yii\db\ActiveRecord
         return $dataProvider = new SqlDataProvider([
             'sql' => $sql_list,
             'params' => [
-              ':p0' => $branch,
             ],
             'pagination' => [
                 'pageSize' => 0,

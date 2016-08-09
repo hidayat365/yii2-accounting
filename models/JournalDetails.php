@@ -61,9 +61,9 @@ class JournalDetails extends \yii\db\ActiveRecord
     {
         return [
             [['journal_id', 'account_id'], 'required'],
-            [['journal_id', 'account_id', 'department_id', 'project_id', 'reference_id', 'reference_date', 'order_id', 'order_date', 'invoice_id', 'invoice_date', 'item_id', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
-            [['debet', 'debet_real', 'credit', 'credit_real', 'currency_rate1', 'currency_rate2', 'quantity', 'unit_price', 'tax1_pct', 'tax2_pct', 'disc1_pct', 'disc2_pct'], 'number'],
-            [['reference_num', 'order_num', 'invoice_num', 'remarks'], 'string', 'max' => 255],
+            [['journal_id', 'account_id', 'department_id', 'project_id', 'reference_id', 'reference_date', 'created_by', 'created_on', 'modified_by', 'modified_on'], 'integer'],
+            [['debet', 'debet_real', 'credit', 'credit_real', 'currency_rate1', 'currency_rate2'], 'number'],
+            [['reference_num', 'remarks'], 'string', 'max' => 255],
             [['debet','debet_real','credit','credit_real'], 'default', 'value' => 0],
         ];
     }
