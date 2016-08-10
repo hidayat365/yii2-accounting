@@ -5,8 +5,6 @@ namespace app\models;
 use Yii;
 use app\models\Projects;
 use app\models\Departments;
-use app\modules\inventory\models\Items;
-use app\modules\inventory\models\UnitMeasures;
 
 
 /**
