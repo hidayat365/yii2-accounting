@@ -40,6 +40,7 @@ AppAsset::register($this);
             [
               'label' => 'Settings',
               'url' => ['/site/settings'],
+              'visible' => !Yii::$app->user->isGuest,
               'items' => [
                 ['label' => 'COA', 'url' => ['/account/index'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Currencies', 'url' => ['/currency/index'], 'visible' => !Yii::$app->user->isGuest],
@@ -51,16 +52,18 @@ AppAsset::register($this);
             [
               'label' => 'Transactions',
               'url' => ['/journal/index'],
+              'visible' => !Yii::$app->user->isGuest,
               'items' => [
                 ['label' => 'General Journals', 'url' => ['/journal/index'], 'visible' => !Yii::$app->user->isGuest],
                 '<li class="divider"></li>',
-                ['label' => 'Revenues', 'url' => ['/journal/revenue'], 'visible' => !Yii::$app->user->isGuest],
-                ['label' => 'Expenses', 'url' => ['/journal/expense'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Revenues', 'url' => ['/receive/index'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Expenses', 'url' => ['/payment/index'], 'visible' => !Yii::$app->user->isGuest],
               ],
             ],
             [
               'label' => 'Reports',
               'url' => ['/report/index'],
+              'visible' => !Yii::$app->user->isGuest,
               'items' => [
                 ['label' => 'General Ledger', 'url' => ['/report/ledger'], 'visible' => !Yii::$app->user->isGuest],
                 '<li class="divider"></li>',

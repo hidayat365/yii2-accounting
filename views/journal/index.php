@@ -92,7 +92,6 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'journal_value',
             // 'type_id',
             // 'account_id',
-            // 'source_id',
             // 'currency_id',
             // 'currency_rate1',
             // 'currency_rate2',
