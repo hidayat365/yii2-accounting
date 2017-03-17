@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Currencies;
-use app\models\CurrenciesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
+use app\models\Currencies;
+use app\models\CurrenciesSearch;
 
 /**
  * CurrencyController implements the CRUD actions for Currencies model.
@@ -21,6 +23,17 @@ class CurrencyController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];

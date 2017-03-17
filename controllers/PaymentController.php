@@ -6,8 +6,9 @@ use Yii;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 use app\models\Accounts;
 use app\models\Journals;
@@ -17,7 +18,6 @@ use app\models\JournalDetails;
 use app\models\JournalDetailsSearch;
 use app\models\PaymentSearch;
 use app\models\Currencies;
-
 use app\models\Model;
 
 /**
@@ -32,6 +32,17 @@ class PaymentController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];

@@ -3,11 +3,13 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Departments;
-use app\models\DepartmentsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
+use app\models\Departments;
+use app\models\DepartmentsSearch;
 
 /**
  * DepartmentController implements the CRUD actions for Departments model.
@@ -21,6 +23,17 @@ class DepartmentController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'view', 'create', 'update', 'delete'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'view', 'create', 'update', 'delete'],
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
