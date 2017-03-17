@@ -101,20 +101,25 @@ $config = [
             ],
         ],
         'assetManager' => [
+            /**
+             * Uncomment this setting
+             * to use CDN for jquery and bootstarp
+             ********
             'bundles' => [
                 'yii\web\JqueryAsset' => [
                     'sourcePath' => null, // do not publish the bundle, pake jquery cdn punya google
                     'js' => [
                       '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',
                     ]
-                    ],
-                      'yii\bootstrap\BootstrapAsset' => [
-                      'sourcePath' => null, // do not publish the bundle, pake css punya bootswatch
-                      'css' => [
-                      '//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css', //pake theme flatly copas dari webnya aja
+                ],
+                'yii\bootstrap\BootstrapAsset' => [
+                    'sourcePath' => null, // do not publish the bundle, pake css punya bootswatch
+                    'css' => [
+                        '//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css',  //pake theme flatly copas dari webnya aja
                     ]
                 ],
             ],
+             ********/
         ],
     ],
     'params' => $params,
