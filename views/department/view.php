@@ -31,7 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'code',
             'name',
-            'active',
+            [
+              'attribute'=>'active',
+              'format'=>'raw',
+              'value' => $model->active ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
+              'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
+            ],
             'parent.name',
             'created_by',
             'created_on',
