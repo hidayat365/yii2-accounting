@@ -59,11 +59,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => [ 'class' => 'kv-align-middle', 'width' => '3%' ]
             ],
             [
-              //'header' => 'Journal Value',
-              'attribute' => 'journal_value_real',
-              'headerOptions' => [ 'class' => 'kv-align-middle kv-align-right' ],
-              'contentOptions' => [ 'class' => 'kv-align-middle kv-align-right', 'width' => '15%' ],
-              'format' => ['decimal', 2],
+                'attribute' => 'journal_value_real',
+                'format' => ['decimal', 2],
+                'headerOptions' => [ 'class' => 'kv-align-middle kv-align-right' ],
+                'contentOptions' => [ 'class' => 'kv-align-middle kv-align-right', 'width' => '15%' ],
             ],
             [
                 'class' => '\kartik\grid\BooleanColumn',

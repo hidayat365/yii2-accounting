@@ -45,8 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'location',
             [
-              'attribute' => 'value',
-              'format' => ['decimal', 2]
+                'attribute' => 'value',
+                'format' => ['decimal', 2],
+                'headerOptions' => [ 'class' => 'kv-align-middle kv-align-right' ],
+                'contentOptions' => [ 'class' => 'kv-align-middle kv-align-right', 'width' => '15%' ],
             ],
             'parent.name',
             // 'description',
