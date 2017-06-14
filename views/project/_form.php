@@ -5,6 +5,7 @@ use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use app\models\Projects;
 use kartik\widgets\Select2;
+use kartik\money\MaskMoney;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Projects */
@@ -18,7 +19,20 @@ use kartik\widgets\Select2;
     <?= $form->field($model, 'active')->checkBox() ?>
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'value')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'value')
+    ->widget(MaskMoney::classname(), [
+            'pluginOptions' => [
+            'affixesStay' => true,
+            'thousands' => ',',
+            'decimal' => '.',
+            'precision' => 2,
+            'allowZero' => true,
+            'allowNegative' => false,
+        ],
+        'options' => [
+            'style' => 'text-align:right;',
+        ],
+    ]) ?>
     <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'parent_id')
         ->widget(Select2::classname(), [

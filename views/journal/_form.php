@@ -4,8 +4,6 @@ use yii\web\View;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
-use kartik\datecontrol\DateControl;
-use kartik\widgets\Select2;
 
 use app\assets\JournalAsset;
 use app\models\JournalTypes;
@@ -16,7 +14,9 @@ use app\models\Departments;
 
 use wbraganca\dynamicform\DynamicFormWidget;
 use kartik\date\DatePicker;
-
+use kartik\money\MaskMoney;
+use kartik\datecontrol\DateControl;
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Journals */
@@ -60,7 +60,20 @@ use kartik\date\DatePicker;
                 ]); ?>
         </div>
         <div class="col-xs-6 col-sm-2 col-lg-2">
-            <?= $form->field($model, 'currency_rate1')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'currency_rate1')
+            ->widget(MaskMoney::classname(), [
+                    'pluginOptions' => [
+                    'affixesStay' => true,
+                    'thousands' => ',',
+                    'decimal' => '.',
+                    'precision' => 2,
+                    'allowZero' => true,
+                    'allowNegative' => false,
+                ],
+                'options' => [
+                    'style' => 'text-align:right;',
+                ],
+            ]) ?>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
