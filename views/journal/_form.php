@@ -14,7 +14,7 @@ use app\models\Departments;
 
 use wbraganca\dynamicform\DynamicFormWidget;
 use kartik\date\DatePicker;
-use kartik\money\MaskMoney;
+use kartik\number\NumberControl;
 use kartik\datecontrol\DateControl;
 use kartik\widgets\Select2;
 
@@ -60,20 +60,7 @@ use kartik\widgets\Select2;
                 ]); ?>
         </div>
         <div class="col-xs-6 col-sm-2 col-lg-2">
-            <?= $form->field($model, 'currency_rate1')
-            ->widget(MaskMoney::classname(), [
-                    'pluginOptions' => [
-                    'affixesStay' => true,
-                    'thousands' => ',',
-                    'decimal' => '.',
-                    'precision' => 2,
-                    'allowZero' => true,
-                    'allowNegative' => false,
-                ],
-                'options' => [
-                    'style' => 'text-align:right;',
-                ],
-            ]) ?>
+            <?= $form->field($model, 'currency_rate1')->widget(NumberControl::classname()) ?>
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
