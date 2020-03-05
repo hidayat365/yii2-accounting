@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff6760a0d0babf6e1a7ebf81e7cf100c",
+    "content-hash": "6fa58ead6e2ceec433f4b50e3c7a5de4",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -2016,6 +2016,100 @@
                 "yii2"
             ],
             "time": "2018-10-09T17:40:19+00:00"
+        },
+        {
+            "name": "mdmsoft/yii2-ar-behaviors",
+            "version": "1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdmsoft/yii2-ar-behaviors.git",
+                "reference": "95542f822433dd7c59b139a1dad4c698c41c30f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-ar-behaviors/zipball/95542f822433dd7c59b139a1dad4c698c41c30f7",
+                "reference": "95542f822433dd7c59b139a1dad4c698c41c30f7",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "bootstrap": "mdm\\behaviors\\ar\\Bootstrap",
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mdm\\behaviors\\ar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Misbahul Munir",
+                    "email": "misbahuldmunir@gmail.com"
+                }
+            ],
+            "description": "Behaviors for Yii2",
+            "keywords": [
+                "Behavior",
+                "activerecord",
+                "query scope",
+                "yii2"
+            ],
+            "time": "2016-02-22T02:51:54+00:00"
+        },
+        {
+            "name": "mdmsoft/yii2-widgets",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdmsoft/yii2-widgets.git",
+                "reference": "c99410b181127d2864b5a4e8ee1413de57833baa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-widgets/zipball/c99410b181127d2864b5a4e8ee1413de57833baa",
+                "reference": "c99410b181127d2864b5a4e8ee1413de57833baa",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0.4"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "mdm\\widgets\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Misbahul Munir",
+                    "email": "misbahuldmunir@gmail.com"
+                }
+            ],
+            "description": "Widgets for Yii2",
+            "keywords": [
+                "tabular input",
+                "widgets",
+                "yii"
+            ],
+            "time": "2017-03-12T08:22:08+00:00"
         },
         {
             "name": "mpdf/mpdf",

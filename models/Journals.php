@@ -44,6 +44,8 @@ use app\models\JournalDetails;
  */
 class Journals extends \yii\db\ActiveRecord
 {
+    use \mdm\behaviors\ar\RelationTrait;
+
     /**
      * @inheritdoc
      */
