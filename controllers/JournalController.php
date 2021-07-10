@@ -103,7 +103,10 @@ class JournalController extends Controller
         $model = new Journals();
         $details = [ new JournalDetails ];
         $accounts = Accounts::find()->all();
+        $now = time();
 
+        $model->journal_num = 'GJV.'.$now;
+        $model->journal_date = $now;
         $model->posted = 1;
         $model->payment = 0;
         $model->closing = 0;

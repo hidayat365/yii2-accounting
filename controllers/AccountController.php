@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use app\models\Accounts;
+use app\models\AccountsPath;
 use app\models\AccountsSearch;
 
 /**
@@ -62,7 +63,7 @@ class AccountController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findAccountsPath($id),
         ]);
     }
 
@@ -94,6 +95,13 @@ class AccountController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $path = $this->findAccountsPath($id);
+
+        if ($path->level <= 2) {
+            return $this->render('view', [
+                'model' => $path,
+            ]);
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -112,7 +120,12 @@ class AccountController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $path = $this->findAccountsPath($id);
+
+        if ($path->level > 2) {
+            $model->delete();
+        }
 
         return $this->redirect(['index']);
     }
@@ -127,6 +140,22 @@ class AccountController extends Controller
     protected function findModel($id)
     {
         if (($model = Accounts::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    /**
+     * Finds the Accounts model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Accounts the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findAccountsPath($id)
+    {
+        if (($model = AccountsPath::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

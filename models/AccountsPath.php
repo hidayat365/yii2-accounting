@@ -51,6 +51,14 @@ class AccountsPath extends \yii\db\ActiveRecord
     }
 
     /**
+     * @inheritdoc$primaryKey
+     */
+    public static function primaryKey()
+    {
+        return ["id"];
+    }
+
+    /**
      * @inheritdoc
      */
     public function rules()
@@ -101,6 +109,14 @@ class AccountsPath extends \yii\db\ActiveRecord
             'modified_by' => Yii::t('app', 'Modified By'),
             'modified_on' => Yii::t('app', 'Modified On'),
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent()
+    {
+        return $this->hasOne(Accounts::className(), ['id' => 'parent_id']);
     }
 
     /**
