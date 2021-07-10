@@ -38,10 +38,7 @@
     "config": {
         "process-timeout": 1800,
         "fxp-asset": {
-            "installer-paths": {
-              "npm-asset-library": "vendor/npm",
-              "bower-asset-library": "vendor/bower"
-            }
+            "enabled": false
         }
     },
     "scripts": {
@@ -64,13 +61,17 @@
             ],
             "generateCookieValidationKey": [
                 "config/web.php"
-            ]
+            ],
+            "asset-installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
         }
     },
     "repositories": [
         {
             "type": "composer",
-            "url": "https://packagist.org"
+            "url": "https://asset-packagist.org"
         }
     ]
 }
