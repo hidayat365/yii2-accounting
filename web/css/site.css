@@ -119,3 +119,11 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+.kv-view-mode .kv-panel-before {
+    padding: 0;
+    border-bottom: none;
+}
+
+tr.table-primary {
+    background-color: #efefef;
+}
