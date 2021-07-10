@@ -30,6 +30,10 @@ h1, h2, h3, h4, h5 {
 .panel-heading .summary {
     padding-top: 3px;
 }
+.panel-footer .form-group {
+    margin-bottom: 0;
+}
+
 .container-fluid .site-index,
 .container-fluid .site-error {
     margin-top: 50px;

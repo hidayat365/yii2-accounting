@@ -32,47 +32,58 @@ use kartik\widgets\Select2;
     <?php $form = ActiveForm::begin(['id' => 'journals-form']); ?>
     <?= $form->field($model, 'type_id')->hiddenInput()->label(false); ?>
 
-    <div class="row">
-        <div class="col-xs-6 col-sm-3 col-lg-4">
-            <?= $form->field($model, 'journal_num')->textInput(['maxlength' => true]) ?>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="glyphicon glyphicon-book"></i> 
+                <?= $model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update') ?>
+                Journal Header
+            </h4>
         </div>
 
-        <div class="col-xs-6 col-sm-4 col-lg-3">
-            <?= $form->field($model, 'journal_date')
-                ->widget(DateControl::classname(), [
-                    'type'=>DateControl::FORMAT_DATE,
-                    'options' => [
-                        'class' => 'form-control col-md-4',
-                        'pluginOptions' => [
-                            'autoclose' => true
-                        ],
-                    ],
-                ]) ?>
-        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <?= $form->field($model, 'journal_num')->textInput(['maxlength' => true]) ?>
+                </div>
 
-        <div class="col-xs-6 col-sm-3 col-lg-3">
-            <?= $form->field($model, 'currency_id')
-                ->widget(Select2::classname(), [
-                    'data' => ArrayHelper::map(Currencies::find()->all(), 'id', 'name'),
-                    'options' => [
-                        'placeholder' => 'Select currency ...'
-                    ],
-                    'pluginOptions' => [
-                        'allowClear' => true
-                    ],
-                ]); ?>
-        </div>
-        <div class="col-xs-6 col-sm-2 col-lg-2">
-            <?= $form->field($model, 'currency_rate1')->widget(NumberControl::classname()) ?>
-        </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <?= $form->field($model, 'journal_date')
+                        ->widget(DateControl::classname(), [
+                            'type'=>DateControl::FORMAT_DATE,
+                            'options' => [
+                                'class' => 'form-control col-md-4',
+                                'pluginOptions' => [
+                                    'autoclose' => true
+                                ],
+                            ],
+                        ]) ?>
+                </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <?= $form->field($model, 'currency_id')
+                        ->widget(Select2::classname(), [
+                            'data' => ArrayHelper::map(Currencies::find()->all(), 'id', 'name'),
+                            'options' => [
+                                'placeholder' => 'Select currency ...'
+                            ],
+                            'pluginOptions' => [
+                                'allowClear' => true
+                            ],
+                        ]); ?>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <?= $form->field($model, 'currency_rate1')->widget(NumberControl::classname()) ?>
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <?= $form->field($model, 'remarks')->textInput(['maxlength' => true]) ?>
+                </div>
+            </div><!-- .row -->
         </div>
-    </div><!-- .row -->
+    </div>
 
 
-    <div class="panel panel-default">
+    <div class="panel panel-info">
         <div class="panel-heading"><h4><i class="glyphicon glyphicon-th-list"></i> Journal Details</h4></div>
         <div class="panel-body">
             <!-- start form-group -->
@@ -98,10 +109,15 @@ use kartik\widgets\Select2;
         </div>
     </div>
 
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-warning' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-success']) ?>
+    <div class="panel panel-info">
+        <div class="panel-footer">
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                    'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+                ]) ?>
+                <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-default']) ?>
+            </div>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>

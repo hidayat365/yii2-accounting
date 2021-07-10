@@ -43,8 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'journal_date',
                         'format' => [ 'date', 'php: d-M-Y' ],
-                        'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
-                    ],
+                        'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                        'valueColOptions' => [ 'style'=>'width:80%' ],
+                            ],
                     [
                         'attribute' => 'type_id',
                         'value' => JournalTypes::findOne($model->type_id)->name,
@@ -80,8 +81,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute'=>'posted',
                         'format'=>'raw',
                         'value' => $model->posted ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
-                        'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
-                    ],
+                        'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                        'valueColOptions' => [ 'style'=>'width:80%' ],
+                            ],
                     [
                         'attribute'=>'payment',
                         'format'=>'raw',

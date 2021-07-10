@@ -14,18 +14,40 @@ use kartik\widgets\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'parent_id')
-        ->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Departments::find()->all(), 'id', 'name'),
-                'options' => [
-                    'placeholder' => 'Select Department ...'
-                ],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="glyphicon glyphicon-book"></i> 
+                <?= $model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update') ?>
+                Department Details
+            </h4>
+        </div>
+
+        <div class="panel-body">
+
+            <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'parent_id')
+                ->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(Departments::find()->all(), 'id', 'name'),
+                    'options' => [
+                        'placeholder' => 'Select Department ...'
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
             ]); ?>
+
+        </div>
+
+        <div class="panel-footer">
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                    'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+                ]) ?>
+                <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-default']) ?>
+            </div>
+        </div>
+    </div>
 
     <?php /*
     <?= $form->field($model, 'created_by')->textInput() ?>
@@ -33,11 +55,6 @@ use kartik\widgets\Select2;
     <?= $form->field($model, 'modified_by')->textInput() ?>
     <?= $form->field($model, 'modified_on')->textInput() ?>
     */ ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-success']) ?>
-    </div>
 
     <?php ActiveForm::end(); ?>
 

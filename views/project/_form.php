@@ -16,21 +16,42 @@ use kartik\number\NumberControl;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'active')->checkBox() ?>
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'value')->widget(NumberControl::classname()) ?>
-    <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'parent_id')
-        ->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Projects::find()->all(), 'id', 'name'),
-                'options' => [
-                    'placeholder' => 'Select Project ...'
-                ],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="glyphicon glyphicon-book"></i> 
+                <?= $model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update') ?>
+                Project Details
+            </h4>
+        </div>
+
+        <div class="panel-body">
+            <?= $form->field($model, 'active')->checkBox() ?>
+            <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'value')->widget(NumberControl::classname()) ?>
+            <?= $form->field($model, 'location')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'parent_id')
+                ->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(Projects::find()->all(), 'id', 'name'),
+                    'options' => [
+                        'placeholder' => 'Select Project ...'
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
             ]); ?>
+        </div>
+
+        <div class="panel-footer">
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                    'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+                ]) ?>
+                <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-default']) ?>
+            </div>
+        </div>
+    </div>
+
 
     <?php /*
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
@@ -44,11 +65,6 @@ use kartik\number\NumberControl;
     <?= $form->field($model, 'status')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'progress_pct')->textInput(['maxlength' => true]) ?>
     */ ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-success']) ?>
-    </div>
 
     <?php ActiveForm::end(); ?>
 

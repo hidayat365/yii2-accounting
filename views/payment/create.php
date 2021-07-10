@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\Journals */
 
 $this->title = Yii::t('app', 'Create Expense');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Expense'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Expenses'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="journals-create">

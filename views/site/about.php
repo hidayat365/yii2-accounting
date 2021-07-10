@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
       </div>
     </div>
     <div class="col-sm-5">
-      <div class="panel panel-success">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title"><i class="glyphicon glyphicon-tasks"></i>  <strong>Contact Developer</strong></h3>
         </div>
@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </tr>
             <tr>
               <th>Website</th>
-              <td><a href="http://pojokprogrammer.net">pojokprogrammer.net</a></td>
+              <td><a href="http://pojokprogrammer.net" target="blank">pojokprogrammer.net</a></td>
             </tr>
             <tr>
               <th>Phone/WA</th>

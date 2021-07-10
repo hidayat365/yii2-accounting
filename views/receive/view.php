@@ -38,14 +38,30 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-12 col-md-6">
             <?= DetailView::widget([
                 'model' => $model,
+                'bordered' => true,
+                'striped' => true,
+                'condensed' => false,
+                'responsive' => true,
+                'hover' => true,
+                'mode' => DetailView::MODE_VIEW,
+                'hAlign' => DetailView::ALIGN_RIGHT,
+                'vAlign' => DetailView::ALIGN_MIDDLE,
+                'panel' => [
+                    'type' => DetailView::TYPE_INFO, 
+                    'heading' => '<i class="fa fa-book"></i> <strong>'.Yii::t('app', 'Receive Information').'</strong>',
+                    'footer' => '<div class="text-center text-muted">'. $model->code . ': ' . $model->name .'</div>'
+                ],
+                'buttons1' => '',
+                'buttons2' => '',
                 'attributes' => [
                     // 'id',
                     'journal_num',
                     [
                         'attribute' => 'journal_date',
                         'format' => [ 'date', 'php: d-M-Y' ],
-                        'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
-                    ],
+                        'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                        'valueColOptions' => [ 'style'=>'width:80%' ],
+                            ],
                     [
                         'attribute' => 'type_id',
                         'value' => JournalTypes::findOne($model->type_id)->name,
@@ -80,8 +96,9 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute'=>'posted',
                         'format'=>'raw',
                         'value' => $model->posted ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
-                        'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
-                    ],
+                        'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                        'valueColOptions' => [ 'style'=>'width:80%' ],
+                            ],
                     [
                         'attribute'=>'payment',
                         'format'=>'raw',

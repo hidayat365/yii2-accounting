@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use kartik\detail\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Projects */
@@ -29,22 +29,49 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+        'bordered' => true,
+        'striped' => true,
+        'condensed' => false,
+        'responsive' => true,
+        'hover' => true,
+        'mode' => DetailView::MODE_VIEW,
+        'hAlign' => DetailView::ALIGN_RIGHT,
+        'vAlign' => DetailView::ALIGN_MIDDLE,
+        'panel' => [
+            'type' => DetailView::TYPE_INFO, 
+            'heading' => '<i class="fa fa-book"></i> <strong>'.Yii::t('app', 'Project Information').'</strong>',
+            'footer' => '<div class="text-center text-muted">'. $model->code . ': ' . $model->name .'</div>'
+        ],
+        'buttons1' => '',
+        'buttons2' => '',
         'attributes' => [
             // 'id',
             'code',
             'name',
-            'parent.name',
+            [
+                'attribute' => 'parent_id',
+                'format' => 'raw',
+                'value' =>  isset($model->parent) 
+                    ? Html::a($model->parent->name,
+                        Url::to(['/project/view','id' => $model->parent_id]),
+                        ['class' => 'kv-author-link']) 
+                    : "-",
+                'label' => 'Parent Project'
+            ],
             [   'attribute' => 'value',
                 'format' => ['decimal', 2],
             ],
             // 'description',
             'location',
             [
-              'attribute'=>'active',
-              'format'=>'raw',
-              'value' => $model->active ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
-              'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
-            ],
+                'attribute'=>'active',
+                'format'=>'raw',
+                'value' => $model->active 
+                    ? '<span class="label label-success">Yes</span>' 
+                    : '<span class="label label-danger">No</span>',
+                'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                'valueColOptions' => [ 'style'=>'width:80%' ],
+          ],
             // 'status',
             // 'contract_num',
             // 'contact_person',

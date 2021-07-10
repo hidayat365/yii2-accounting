@@ -15,34 +15,50 @@ use app\models\Accounts;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'active')->checkBox() ?>
-    <?= $form->field($model, 'checking')->checkBox() ?>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4><i class="glyphicon glyphicon-book"></i> 
+                <?= $model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update') ?>
+                Account Details
+            </h4>            
+        </div>
 
-    <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
-    <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <div class="panel-body">
 
-    <?= $form->field($model, 'parent_id')
-        ->widget(Select2::classname(), [
-                'data' => ArrayHelper::map(Accounts::find()->all(), 'id', 'name'),
-                'options' => [
-                    'placeholder' => 'Select Account ...'
-                ],
-                'pluginOptions' => [
-                    'allowClear' => true
-                ],
+            <?= $form->field($model, 'active')->checkBox() ?>
+            <?= $form->field($model, 'checking')->checkBox() ?>
+            <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'parent_id')
+                ->widget(Select2::classname(), [
+                    'data' => ArrayHelper::map(Accounts::find()->all(), 'id', 'name'),
+                    'options' => [
+                        'placeholder' => 'Select Account ...'
+                    ],
+                    'pluginOptions' => [
+                        'allowClear' => true
+                    ],
             ]); ?>
+        </div>
 
-<?php /*
-<?= $form->field($model, 'bank_name')->textInput(['maxlength' => true]) ?>
-<?= $form->field($model, 'bank_address')->textInput(['maxlength' => true]) ?>
-<?= $form->field($model, 'bank_accnum')->textInput(['maxlength' => true]) ?>
-<?= $form->field($model, 'bank_accname')->textInput(['maxlength' => true]) ?>
-*/ ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-success']) ?>
+        <div class="panel-footer">
+            <div class="form-group">
+                <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                    'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+                ]) ?>
+                <?= Html::a(Yii::t('app', 'Back to List'), ['index'], ['class' => 'btn btn-default']) ?>
+            </div>
+        </div>
     </div>
+
+    <?php /*
+    <?= $form->field($model, 'bank_name')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bank_address')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bank_accnum')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'bank_accname')->textInput(['maxlength' => true]) ?>
+    */ ?>
+
 
     <?php ActiveForm::end(); ?>
 

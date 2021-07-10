@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use kartik\detail\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Currencies */
@@ -29,15 +29,37 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= DetailView::widget([
         'model' => $model,
+        'bordered' => true,
+        'striped' => true,
+        'condensed' => false,
+        'responsive' => true,
+        'hover' => true,
+        'mode' => DetailView::MODE_VIEW,
+        'hAlign' => DetailView::ALIGN_RIGHT,
+        'vAlign' => DetailView::ALIGN_MIDDLE,
+        'panel' => [
+            'type' => DetailView::TYPE_INFO, 
+            'heading' => '<i class="fa fa-book"></i> <strong>'.Yii::t('app', 'Currency Information').'</strong>',
+            'footer' => '<div class="text-center text-muted">'. $model->code . ': ' . $model->name .'</div>'
+        ],
+        'buttons1' => '',
+        'buttons2' => '',
         'attributes' => [
             //'id',
-            'code',
+            [
+                'attribute'=>'code',
+                'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                'valueColOptions' => [ 'style'=>'width:80%' ],
+            ],
             'name',
             [
-              'attribute'=>'active',
-              'format'=>'raw',
-              'value' => $model->active ? '<span class="label label-success">Yes</span>' : '<span class="label label-danger">No</span>',
-              'labelColOptions' => [ 'style'=>'width:30%; text-align:right;' ]
+                'attribute'=>'active',
+                'format'=>'raw',
+                'value' => $model->active 
+                    ? '<span class="label label-success">Yes</span>' 
+                    : '<span class="label label-danger">No</span>',
+                'labelColOptions' => [ 'style'=>'width:20%; text-align:right;' ],
+                'valueColOptions' => [ 'style'=>'width:80%' ],
             ],
             'created_by',
             'created_on',
