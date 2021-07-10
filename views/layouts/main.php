@@ -21,7 +21,7 @@ AppAsset::register($this);
     <title><?= Yii::$app->params['productName'] ?> | <?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="navbar-fixed">
 <?php $this->beginBody() ?>
 
 <div class="wrap">
