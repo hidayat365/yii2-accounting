@@ -18,6 +18,7 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
+        "yiithings/yii2-dotenv": "^1.0",
         "mdmsoft/yii2-widgets": "~1.0",
         "mdmsoft/yii2-ar-behaviors": "~1.0",
         "kartik-v/yii2-widgets": "*",
